@@ -253,8 +253,16 @@ git有两个区域，分别是 工作区、版本库，
 更新有以下几种状态：
 
 - 还没有此更新：对工作区的文件没有修改；
+  - git status：nothing to commit, working tree clean
+
 - 已更新未暂存：对工作区中的文件修改了，但没有使用 git add 命令暂存到暂存区；
+  - changes not staged for commit: 
+  - ​                    modified:      filename
+
 - 已更新并暂存：对工作区中的文件修改了，并且使用 git add 命令暂存到了暂存区；
+  - changes to be committed:
+  - ​                     modified:      filename
+
 - 已提交：此更新在暂存区时，使用了 git commit 命令，将此更新提交了。
 
 
