@@ -1,4 +1,4 @@
-# learngit
+## learngit
 
 learn git 
 
@@ -347,7 +347,44 @@ git有两个区域，分别是 工作区、版本库，
 
 
 
-### 常用命令
+## 管理的远程库
+
+### 查看远程库信息
+
+使用命令 git remote 查看所有管理的远程库的信息
+
+使用 git remote -v 查看更详细的信息
+
+- (fetch) 表示默认拉取的远程仓库
+- (push) 表示默认推送的远程仓库
+
+### 推送
+
+把分支推送到远程
+
+git push origin master
+
+表示把本地master分支推送到origin远程上对应的分支
+
+### 关联分支
+
+但是，要能够推送，需要本地分支与远程对应的分支作链接关系，
+
+git branch --set-upstream dev origin/dev
+
+### 拉取
+
+git pull
+
+拉取本地当前分支所关联的远程分支，然后自动合并到当前分支上，有冲突时要手动解决冲突，
+
+
+
+
+
+
+
+## 常用命令
 
 git
 
