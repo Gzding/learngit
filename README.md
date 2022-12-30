@@ -287,11 +287,13 @@ git有两个区域，分别是 工作区、版本库，
 
 其中当前所在分支的名字前有星号*标识，
 
+新建分支：git branch new-branch-name
 
+切换分支：git checkout branch-name
 
+合并某分支到分支：git merge branch-name
 
-
-
+删除分支：git branch -d branch-name
 
 
 
