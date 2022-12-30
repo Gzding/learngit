@@ -295,6 +295,10 @@ git有两个区域，分别是 工作区、版本库，
 
 删除分支：git branch -d branch-name
 
+注意：所有未提交的更新在切换分支后还是存在的，所以切换分支之前工作区最好没有任何更新，
+
+
+
 ### 分支合并时的冲突
 
 当将某分支合并到当前分支时，可能会产生冲突，冲突是git无法自主决定去留的两个分支的不同内容，
@@ -309,7 +313,37 @@ git有两个区域，分别是 工作区、版本库，
 
 手动解决好所有冲突之后，使用 git add 和 git commit 提交，至此，冲突解决好了。
 
+查看历史记录：git log --graph --pretty=oneline
 
+
+
+### 工作区更新内容的暂时隐藏
+
+当在某分支工作时，工作只做到了一半，也就是有文件处于以下状态
+
+- git status : changes not staged for commit
+
+但是，此时又要处理一个紧急事件，即要做些紧急更新，并合并到主分支上，但此时在当前分支上工作，工作区的内容还不能add，更不能提交，
+
+所以，在新建紧急分支去处理紧急事件之前，需要对当前工作区未add的更新做些处理，
+
+使用命令 git stash 将当前工作区的未add的更新隐藏起来，
+
+此时，git status: nothing to commit, working tree clean
+
+然后，就可新建分支去处理紧急事件了。
+
+待紧急事件处理后，切换到之前的工作分支继续之前的工作，
+
+但此时，git status : nothing to commit, working tree clean
+
+使用命令 git stash list 查看隐藏的工作现场，
+
+- 使用 git stash apply 将 stash list 中的第一个取出，
+- 使用 git stash pop 将 stash list 中的第一个取出并从 stash list 中删除，
+- 使用 git stash drop 将 stash list 中的第一个删除，
+
+取出第一个放到工作区中，即可继续工作。
 
 
 
